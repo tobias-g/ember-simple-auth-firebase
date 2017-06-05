@@ -1,0 +1,14 @@
+<h2>Login</h2>
+
+{{#if session.isAuthenticated}}
+    <p>You are logged in! You can now look at the {{#link-to 'secret'}}secret{{/link-to}}.</p>
+{{else}}
+    <form {{action "signIn" on="submit"}}>
+        <label for="email">Email</label>
+        {{input id="email" name="email" placeholder="Email" value=email type="text"}}
+        <label for="password">Password</label>
+        {{input id="password" name="password" placeholder="Password" value=password type="password"}}
+        <button>Login</button>
+    </form>
+    <button {{action "googleSignIn"}}>Google Sign In</button>
+{{/if}}

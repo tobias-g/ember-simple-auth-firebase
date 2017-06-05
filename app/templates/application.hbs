@@ -1,0 +1,7 @@
+<h1>Ember Simple Auth Firebase</h1>
+{{#link-to 'login'}}Login{{/link-to}}
+{{#link-to 'secret'}}Secret{{/link-to}}
+{{#if session.isAuthenticated}}
+    <button {{action "logout"}}>Logout</button>
+{{/if}}
+{{outlet}}
