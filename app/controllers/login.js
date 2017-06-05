@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
          * Login a user with an email and password
          */
         signIn: function () {
-            this.get('session').open('firebase', {
+            this.get('session').authenticate('authenticator:torii', 'firebase', {
                 provider: 'password',
                 email: this.get('email'),
                 password: this.get('password')
@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
          * Login a user via Google provider
          */
         googleSignIn: function () {
-            this.get('session').open('firebase', {
+            this.get('session').authenticate('authenticator:torii', 'firebase', {
                 provider: 'google'
             })
             .then((data) => {
